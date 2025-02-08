@@ -1,0 +1,167 @@
+---
+import Button from "./ui/Button.astro";
+import Mail from "./ui/icons/Mail.astro";
+import Phone from "./ui/icons/Phone.astro";
+import Instagram from "./ui/icons/Instagram.astro";
+import Twitter from "./ui/icons/Twitter.astro";
+import Contact from "../pages/contact.astro";
+
+const navItems = [
+    {
+        href: "contact",
+        text: "Contact Us",
+    },
+];
+
+const name = "Salem Taxi";
+---
+
+<div
+    class="pr-4 text-center bg-black flex items-center text-sm max-[430px]:hidden"
+>
+    <div
+        class="w-[50%] max-sm:w-[70%] h-full bg-yellow-300 py-2 flex justify-end pr-10 gap-5 flex-wrap"
+        style="clip-path: polygon(0% 0%, 100% 0, 95% 100%, 0 100%)"
+    >
+        <div class="flex items-center gap-x-2 text-black">
+            <Phone color="black" />
+            <p>+1 (000) 000-0000</p>
+        </div>
+        <div class="flex items-center gap-x-2 text-black">
+            <Mail color="black" />
+            <p>info@salemtaxi.com</p>
+        </div>
+    </div>
+    <div class="pl-10 gap-5 flex flex-wrap py-2">
+        <div class="flex gap-x-2 items-center text-white">
+            <Instagram />
+            <p>@SalemTaxi</p>
+        </div>
+        <div class="flex gap-x-2 items-center text-white">
+            <Twitter />
+            <p>@SalemTaxi</p>
+        </div>
+    </div>
+</div>
+
+<div
+    class="header
+        w-full
+        relative
+        max-lg:top-0
+        left-0
+        z-[20]
+        px-10
+        py-[.8rem]
+        bg-black"
+>
+    <header
+        class="flex justify-between items-center max-lg:gap-0 max-w-[1440px] mx-auto max-lg:flex-col text-white font-semibold"
+    >
+        <div
+            class="flex justify-center items-center max-lg:justify-between max-lg:w-full gap-x-16"
+        >
+            <!-- LOGO -->
+            <a href="/" class="flex items-center gap-x-5 h-full">
+                <img
+                    src="/assets/logo.webp"
+                    width="80"
+                    alt={name}
+                    title={name}
+                    class="cursor-pointer"
+                />
+                <p class="text-2xl font-bold max-sm:hidden">SALEM TAXI LLC</p>
+            </a>
+
+            <!-- button checkbox of navigation -->
+            <label for="chkNav">
+                <img
+                    src="/assets/icons/menu.svg"
+                    id="openNavBtn"
+                    class="label-chk-menu lg:hidden px-2 rounded-lg"
+                />
+            </label>
+
+            <input
+                type="checkbox"
+                class="left-[-100%] z-[-9999] absolute invisible"
+                id="chkNav"
+            />
+
+            <!--navigation-->
+            <nav class="nav max-lg:hidden">
+                <ul
+                    class="flex items-end justify-around space-x-8 max-lg:space-x-0"
+                >
+                    <li class="hover:text-yellow-500 text-sm">
+                        <a href="/#thingstodo"> Things to do in Salem </a>
+                    </li>
+                    <li>
+                        <a
+                            href="/contact"
+                            class="hover:text-yellow-500 text-sm"
+                        >
+                            Contact Us
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <a href="/contact" class="max-lg:hidden">
+            <Button text="Book a Taxi" />
+        </a>
+    </header>
+</div>
+
+<style>
+    @media (max-width: 1024px) {
+        .nav {
+            display: none;
+            position: absolute;
+            left: 0;
+            width: 100%;
+            /* top: 7.625rem; */
+            top: 6.5rem;
+            background-color: black;
+            z-index: 20;
+            padding: 3rem 1rem;
+        }
+
+        .nav ul {
+            gap: 2rem;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            margin: 0;
+            height: max-content;
+        }
+
+        .links {
+            display: none;
+        }
+    }
+    #chkNav:checked ~ .nav {
+        display: flex;
+    }
+</style>
+
+<script>
+    let stateMenu = false;
+    const openNavBtn: any = document.getElementById("openNavBtn");
+
+    openNavBtn.addEventListener(
+        "click",
+        () => {
+            if (!stateMenu) {
+                openNavBtn.setAttribute("src", "/assets/icons/menu-close.svg");
+                stateMenu = !stateMenu;
+                return;
+            }
+
+            openNavBtn.setAttribute("src", "/assets/icons/menu.svg");
+            stateMenu = !stateMenu;
+        },
+        false,
+    );
+</script>

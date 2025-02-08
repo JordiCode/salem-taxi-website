@@ -1,0 +1,30 @@
+---
+const year = new Date().getFullYear();
+import Instagram from "./ui/icons/Instagram.astro";
+import Twitter from "./ui/icons/Twitter.astro";
+import TikTok from "./ui/icons/TikTok.astro";
+---
+
+<footer
+    class="relative border-t-2 p-6 max-w-[1440px] mx-auto border-yellow-400 not-prose flex items-center justify-between mt-16 gap-5"
+>
+    <div
+        class="flex items-center justify-between gap-16 max-sm:flex-col-reverse max-sm:gap-6"
+    >
+        <p class="font-light text-md text-yellow-50">
+            © {year} SALEM TAXI LLC
+        </p>
+    </div>
+
+    <div class="flex gap-10">
+        <a href="#" target="_blank">
+            <Instagram />
+        </a>
+        <a href="#" target="_blank">
+            <Twitter />
+        </a>
+        <a href="#" target="_blank">
+            <TikTok />
+        </a>
+    </div>
+</footer>

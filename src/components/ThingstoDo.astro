@@ -1,0 +1,32 @@
+---
+import { images } from "../assets/data";
+---
+
+<h1 class="text-6xl max-lg:text-5xl font-bold text-center mb-16 px-5">
+    Places to<span class="text-yellow-300"> visit</span> in Salem
+</h1>
+<div
+    class="flex mx-auto max-w-[1440px] flex-wrap items-center justify-center max-sm:px-5"
+    id="thingstodo"
+>
+    {
+        images.map(({ src, alt, title, url }) => {
+            return (
+                <div class="relative w-max max-sm:w-auto h-max group overflow-hidden">
+                    <div class="absolute top-0 left-0 bg-white text-black border-black border px-5 py-2 text-xs z-10">
+                        {title}
+                    </div>
+
+                    <a href={url}>
+                        <img
+                            src={src}
+                            alt={alt}
+                            title={title}
+                            class="max-w-[480px] w-full group-hover:scale-110 transition-transform duration-300"
+                        />
+                    </a>
+                </div>
+            );
+        })
+    }
+</div>

@@ -1,0 +1,42 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { images } from "../../assets/data";
+
+export function getStaticPaths() {
+    return images.map((image) => {
+        return { params: { thingstodo: image.id } };
+    });
+}
+
+const { thingstodo } = Astro.params;
+---
+
+<Layout title="Rock N´Roll - Contact Us">
+    <div class="flex gap-10 max-w-[1440px] mx-auto px-10 pt-24 max-lg:pt-16">
+        {
+            images.map((image) => {
+                if (image.id == thingstodo) {
+                    return (
+                        <div class="flex max-lg:flex-col max-lg:items-start items-center gap-10 ">
+                            <img
+                                src={image.src}
+                                alt={image.title}
+                                class="w-[50%] max-lg:w-[100%]"
+                            />
+                            <div class="max-md:text-center">
+                                <div class="mb-16">
+                                    <h1 class="text-5xl mb-6 font-semibold">
+                                        {image.title}
+                                    </h1>
+                                    <p class="font-light text-sm text-zinc-300">
+                                        {image.shortDescription}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    );
+                }
+            })
+        }
+    </div>
+</Layout>

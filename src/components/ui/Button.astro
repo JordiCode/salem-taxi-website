@@ -1,0 +1,25 @@
+---
+const { text } = Astro.props;
+---
+
+<div
+    class="divMain group py-6 px-10 pr-16 gap-2 relative flex items-center justify-center bg-yellow-300 text-black hover:text-black w-max"
+    data-aos="fade-right"
+    data-aos-duration="1000"
+>
+    <p class="relative z-20">{text}</p>
+    <div
+        class="bg-white absolute top-0 -left-[100%] w-full group-hover:left-0 h-full transition-all duration-500"
+    >
+    </div>
+    <div
+        class="absolute -top-1 right-5 rotate-[13deg] w-[0.35rem] h-[110%] bg-black"
+    >
+    </div>
+</div>
+
+<style>
+    .divMain {
+        clip-path: polygon(0% 0%, 100% 0, 91% 100%, 0 100%);
+    }
+</style>

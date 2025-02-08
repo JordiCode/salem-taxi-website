@@ -1,0 +1,41 @@
+---
+import Button from "./ui/Button.astro";
+const classes = `
+    flex flex-col items-start justify-center bg-[url('/assets/images/home.webp')] relative 
+    bg-no-repeat bg-cover bg-bottom h-[calc(100vh_-_6rem)] min-h-[570px]
+
+`;
+---
+
+<div class={classes}>
+    <div
+        class="flex flex-col items-start justify-start text-left px-4 z-10 max-w-[1440px] mx-auto max-md:absolute max-md:top-[5%]"
+    >
+        <h1
+            class="text-6xl max-lg:text-5xl font-extrabold text-slate-50 max-w-[70rem]"
+            data-aos="zoom-in"
+            data-aos-duration="500"
+        >
+            Reserve Your Taxi From Any Location!
+        </h1>
+        <p
+            class="text-zinc-300 text-base max-lg:text-sm mt-8 max-w-[50rem] font-light"
+            data-aos="zoom-in"
+            data-aos-duration="1000"
+        >
+            Our approach prioritizes attention to detail and personalized care,
+            ensuring that each renovation enhances the beauty and functionality
+            of your living environment, one step at a time.
+        </p>
+        <div
+            class="flex gap-5 mt-16"
+            data-aos="zoom-in"
+            data-aos-duration="1500"
+        >
+            <a href="/#thingstodo">
+                <Button text="Discover More" />
+            </a>
+        </div>
+    </div>
+    <div class="bg-[rgba(0,0,0,0.7)] absolute w-full h-full"></div>
+</div>

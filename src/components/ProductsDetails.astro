@@ -1,0 +1,87 @@
+---
+
+
+const products = [
+  {
+    title: "Banana Kush",
+    bg: "bg-yellow-500",
+    srcImg: "/assets/images/Banana.webp",
+    description: [
+      "Has a deliciously sweet, tropical flavor profile with prominent notes of ripe banana, complemented by hints of earthy, woody undertones. Its smooth and fruity taste makes for a mellow and enjoyable experience, perfect for those who love a sweet, rich flavor with a hint of kush.",
+    ],
+  },
+  {
+    title: "BlueBerry",
+    bg: "bg-blue-500",
+    srcImg: "/assets/images/BlueBerry.webp",
+    description: [
+      "Experience the sweet, fruity essence of our BlueBerry cannabis strain. Known for its rich blueberry aroma and flavor, this hybrid delivers a balanced, uplifting high that is perfect for both relaxation and creativity. With its relaxing yet euphoric effects, BlueBerry is ideal for those looking to unwind after a long day or spark a burst of inspiration. Whether you're enjoying a creative endeavor or simply enjoying some quiet time, BlueBerry offers a smooth, enjoyable experience every time.",
+    ],
+  },
+  {
+    title: "Hemp",
+    bg: "bg-green-500",
+    srcImg: "/assets/images/Hemp.webp",
+    description: [
+      "Discover the natural benefits of our premium hemp products, sourced from high-quality, organically grown hemp plants. Packed with nutrients and natural compounds, our hemp offerings are designed to enhance your daily wellness routine. Whether you're looking for hemp-derived CBD oils, edibles, topicals, or other hemp-based goods, each product is crafted to provide a holistic, plant-powered experience.",
+    ],
+  },
+  {
+    title: "Mango",
+    bg: "bg-orange-500",
+    srcImg: "/assets/images/Mango.webp",
+    description: [
+      "Indulge in the tropical goodness of our Mango-infused products, designed to elevate your cannabis experience with a burst of natural, fruity sweetness. Whether you're savoring a refreshing mango-flavored edible, vape, or concentrate, each product brings the vibrant taste and smooth, mellow effects that mango is known for.",
+    ],
+  },
+  {
+    title: "Rose",
+    bg: "bg-pink-500",
+    srcImg: "/assets/images/Rose.webp",
+    description: [
+      "Unwind and indulge with our rose-infused cannabis products, where elegance meets relaxation. Known for its soothing properties, rose offers a delicate, floral aroma that enhances the sensory experience of cannabis, creating a calming atmosphere that promotes relaxation and peace of mind.",
+    ],
+  },
+];
+---
+
+<div
+  class="max-w-[1440px] mx-auto px-10 mt-28 flex flex-col items-center gap-56 max-lg:gap-24"
+>
+  {
+    products.map(({ title, srcImg, description, bg }) => {
+      return (
+        <div 
+          class="flex max-lg:flex-col max-lg:items-center max-lg:gap-0 gap-24" 
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
+          <div class="grid gap-0">
+            <span class=`h-2 w-[60%] mx-auto ${bg} block max-lg:hidden` />
+            <img
+              src={srcImg}
+              alt={title}
+              class="max-lg:max-w-[250px] lg:max-w-[280px]"
+            />
+            <span class=`h-2 w-[60%] mx-auto ${bg} block max-lg:hidden` />
+          </div>
+          <div class="mt-5 max-lg:mt-5">
+            <div class="w-max max-lg:mx-auto">
+              <h2 class="text-5xl max-sm:text-4xl font-semibold">{title}</h2>
+              <span class=`h-3 max-lg:hidden w-[60%] max-lg:mx-auto ${bg} block` />
+            </div>
+            <ul class="mt-24 max-lg:mt-10 grid gap-24 max-lg:gap-5">
+                  <li>
+                    <div class="flex items-center gap-5">
+                      <p class="text-zinc-400 max-w-[600px] max-lg:max-w-none max-lg:text-center text-xl  leading-[2.2rem]">
+                        {description}
+                      </p>
+                    </div>
+                  </li>
+            </ul>
+          </div>
+        </div>
+      );
+    })
+  }
+</div>

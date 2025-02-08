@@ -1,0 +1,143 @@
+---
+import Button from "./ui/Button.astro";
+import Mail from "./ui/icons/Mail.astro";
+import Phone from "./ui/icons/Phone.astro";
+import Text from "./ui/icons/Text.astro";
+import User from "./ui/icons/User.astro";
+---
+
+<form action="#" id="form" class="text-white grid gap-10">
+    <div class="flex flex-col gap-2">
+        <div class="flex items-center gap-2">
+            <label for="name">Name</label>
+            <User />
+        </div>
+        <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Enter your name"
+            required
+        />
+    </div>
+    <div class="flex flex-col gap-2">
+        <div class="flex items-center gap-2">
+            <label for="email">Email</label>
+            <Mail />
+        </div>
+        <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Enter your email"
+        />
+    </div>
+    <div class="flex flex-col gap-4">
+        <div class="flex items-center gap-2">
+            <label for="phone">Phone</label>
+            <Phone />
+        </div>
+        <input
+            type="text"
+            name="phone"
+            id="phone"
+            placeholder="Enter your phone"
+            required
+        />
+    </div>
+    <div class="flex flex-col gap-2">
+        <div class="flex items-center gap-2">
+            <label for="message">Message</label>
+            <Text />
+        </div>
+        <textarea
+            name="message"
+            id="message"
+            placeholder="Enter your message"
+            required
+            class="resize-none h-32"></textarea>
+    </div>
+
+    <button type="submit" class="cursor-pointer">
+        <Button text="Book a Taxi" />
+    </button>
+    <div class="hidden" id="loader"></div>
+    <div class="hidden" id="warning"></div>
+</form>
+
+<style>
+    input,
+    textarea {
+        border: 1px solid #7676763c;
+        border-radius: 0.2rem;
+        padding: 0.8rem 1rem;
+    }
+    #loader {
+        width: 35px;
+        margin: mx-auto;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        border: 5px solid rgb(225, 225, 225);
+        border-right-color: #eab308;
+        animation: l2 0.5s infinite linear;
+    }
+
+    @keyframes l2 {
+        to {
+            transform: rotate(1turn);
+        }
+    }
+</style>
+
+<script>
+    var clearWarning = function () {
+        setTimeout(() => {
+            warning.style.display = "none";
+        }, 10000);
+    };
+
+    var form = document.getElementById("form") as HTMLFormElement;
+    const loader = document.getElementById("loader") as HTMLDivElement;
+    const warning = document.getElementById("warning") as HTMLDivElement;
+
+    form.addEventListener("submit", async function (e) {
+        loader.style.display = "block";
+        e.preventDefault();
+
+        var data = Object.fromEntries(
+            new FormData(e.target as HTMLFormElement),
+        );
+
+        console.log(data);
+
+        const response = await fetch(
+            "https://165nzs7gse.execute-api.us-east-1.amazonaws.com",
+            {
+                method: "post",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            },
+        );
+
+        setTimeout(() => {
+            if (response.ok) {
+                loader.style.display = "none";
+                warning.style.display = "block";
+                warning.style.color = "#36b460";
+                warning.textContent = "The message has been sent correctly";
+
+                clearWarning();
+            } else {
+                loader.style.display = "none";
+                warning.style.display = "block";
+                warning.style.color = "#b43636";
+                warning.textContent = "There was an error sending the message";
+                clearWarning();
+            }
+
+            this.reset();
+        }, 5000);
+    });
+</script>
