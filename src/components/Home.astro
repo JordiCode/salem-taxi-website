@@ -1,8 +1,8 @@
 ---
 import Button from "./ui/Button.astro";
 const classes = `
-    flex flex-col items-start justify-center bg-[url('/assets/images/home.webp')] relative 
-    bg-no-repeat bg-cover bg-bottom h-[calc(100vh_-_6rem)] min-h-[570px]
+    flex flex-col items-start justify-center bg-[url('/assets/images/home1.webp')] relative 
+    bg-no-repeat bg-cover bg-[0%_20%]  h-[calc(100vh_-_6rem)] min-h-[570px]
 
 `;
 ---
@@ -16,7 +16,7 @@ const classes = `
             data-aos="zoom-in"
             data-aos-duration="500"
         >
-            Reserve Your Taxi From Any Location!
+            Reserve Your <span class="text-yellow-200">Taxi</span> From Any Location!
         </h1>
         <p
             class="text-zinc-300 text-base max-lg:text-sm mt-8 max-w-[50rem] font-light"
