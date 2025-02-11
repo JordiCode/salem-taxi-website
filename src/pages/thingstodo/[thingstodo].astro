@@ -17,20 +17,38 @@ const { thingstodo } = Astro.params;
             images.map((image) => {
                 if (image.id == thingstodo) {
                     return (
-                        <div class="flex max-lg:flex-col max-lg:items-start items-center gap-10 ">
-                            <img
-                                src={image.src}
-                                alt={image.title}
-                                class="w-[50%] max-lg:w-[100%]"
-                            />
-                            <div class="max-md:text-center">
+                        <div class="flex max-lg:flex-col max-lg:items-start items-center gap-10">
+                            <div class="w-[800px] h-[500px] max-lg:w-full max-sm:h-[300px]   overflow-hidden">
+                                {image.src.map((src, index) => {
+                                    return (
+                                        <img
+                                            src={src}
+                                            alt={image.title}
+                                            class={`object-cover w-full h-full   mainImage ${index == 0 ? "" : "hidden"}`}
+                                        />
+                                    );
+                                })}
+                            </div>
+
+                            <div class="max-md:text-center max-w-[500px]  max-md:max-w-full">
                                 <div class="mb-16">
                                     <h1 class="text-5xl mb-6 font-semibold">
                                         {image.title}
                                     </h1>
-                                    <p class="font-light text-sm text-zinc-300">
+                                    <p class="font-light text-sm text-zinc-300 mb-4">
                                         {image.shortDescription}
                                     </p>
+                                    <div class="flex max-md:justify-center gap-2">
+                                        {image.src.map((src, index) => {
+                                            return (
+                                                <img
+                                                    src={src}
+                                                    alt={image.title}
+                                                    class="w-[100px]  cursor-pointer selectImage"
+                                                />
+                                            );
+                                        })}
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -40,3 +58,39 @@ const { thingstodo } = Astro.params;
         }
     </div>
 </Layout>
+
+<script>
+    const mainImage = document.querySelectorAll(".mainImage");
+    const selectImage = document.querySelectorAll(".selectImage");
+
+    function changeImage(img: any, number: number) {
+        mainImage.forEach((img) => {
+            img.classList.add("hidden");
+        });
+
+        selectImage.forEach((img) => {
+            img.classList.remove("border");
+        });
+
+        img.classList.add("border");
+        mainImage[number].classList.remove("hidden");
+    }
+
+    selectImage.forEach((img, index) => {
+        if (index == 0) {
+            img.classList.add("border");
+        }
+
+        img.addEventListener("click", () => {
+            changeImage(img, index);
+        });
+    });
+</script>
+
+<style>
+    .border {
+        border-width: 2px;
+        border-style: solid;
+        border-color: rgb(255, 255, 193);
+    }
+</style>

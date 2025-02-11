@@ -1,0 +1,21 @@
+---
+import OnlineBooking from "../components/OnlineBooking.astro";
+import Layout from "../layouts/Layout.astro";
+import Form from "../components/Form.astro";
+---
+
+<Layout title="Salem Taxi">
+    <div class="max-w-[1440px] mx-auto pt-24 px-5">
+        <h1 class="text-6xl font-bold mb-4">
+            Airport <span class="text-yellow-300">Reservation</span>
+        </h1>
+        <p class="mb-16 leading-6 text-zinc-300">
+            we’re committed to providing safe, reliable, and punctual
+            transportation to meet all your travel needs. Whether you’re booking
+            a ride, have a question, or need assistance, we’re here to help!
+            Please feel free to get in touch with us through any of the methods
+            below.
+        </p>
+        <Form />
+    </div>
+</Layout>

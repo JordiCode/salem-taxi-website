@@ -4,11 +4,22 @@ import Mail from "./ui/icons/Mail.astro";
 import Phone from "./ui/icons/Phone.astro";
 import Instagram from "./ui/icons/Instagram.astro";
 import Twitter from "./ui/icons/Twitter.astro";
-import Contact from "../pages/contact.astro";
 
 const navItems = [
     {
-        href: "contact",
+        text: "Things to do",
+        href: "/#thingstodo",
+    },
+    {
+        text: "Airport Reservation",
+        href: "/airport",
+    },
+    {
+        text: "Vouchers Service ",
+        href: "/vouchers",
+    },
+    {
+        href: "/contact",
         text: "Contact Us",
     },
 ];
@@ -25,22 +36,24 @@ const name = "Salem Taxi";
     >
         <div class="flex items-center gap-x-2 text-black">
             <Phone color="black" />
-            <p>+1 (000) 000-0000</p>
+            <a href="tel:19787412235">+1 (978) 741-2235 </a>
         </div>
         <div class="flex items-center gap-x-2 text-black">
             <Mail color="black" />
-            <p>info@salemtaxi.com</p>
+            <a href="mailto:salemtaxi978mass@gmail.com"
+                >salemtaxi978mass@gmail.com</a
+            >
         </div>
     </div>
     <div class="pl-10 gap-5 flex flex-wrap py-2">
-        <div class="flex gap-x-2 items-center text-white">
+        <!-- <div class="flex gap-x-2 items-center text-white">
             <Instagram />
             <p>@SalemTaxi</p>
         </div>
         <div class="flex gap-x-2 items-center text-white">
             <Twitter />
             <p>@SalemTaxi</p>
-        </div>
+        </div> -->
     </div>
 </div>
 
@@ -48,7 +61,7 @@ const name = "Salem Taxi";
     class="header
         w-full
         relative
-        max-lg:top-0
+        max-xl:top-0
         left-0
         z-[20]
         px-10
@@ -56,10 +69,10 @@ const name = "Salem Taxi";
         bg-black"
 >
     <header
-        class="flex justify-between items-center max-lg:gap-0 max-w-[1440px] mx-auto max-lg:flex-col text-white font-semibold"
+        class="flex justify-between items-center max-xl:gap-0 max-w-[1440px] mx-auto max-xl:flex-col text-white font-semibold"
     >
         <div
-            class="flex justify-center items-center max-lg:justify-between max-lg:w-full gap-x-16"
+            class="flex justify-center items-center max-xl:justify-between max-xl:w-full gap-x-16"
         >
             <!-- LOGO -->
             <a href="/" class="flex items-center gap-x-5 h-full">
@@ -78,7 +91,7 @@ const name = "Salem Taxi";
                 <img
                     src="/assets/icons/menu.svg"
                     id="openNavBtn"
-                    class="label-chk-menu lg:hidden px-2 rounded-lg"
+                    class="label-chk-menu xl:hidden px-2 rounded-lg"
                 />
             </label>
 
@@ -89,33 +102,29 @@ const name = "Salem Taxi";
             />
 
             <!--navigation-->
-            <nav class="nav max-lg:hidden">
+            <nav class="nav max-xl:hidden">
                 <ul
-                    class="flex items-end justify-around space-x-8 max-lg:space-x-0"
+                    class="flex items-end justify-around space-x-8 max-xl:space-x-0"
                 >
-                    <li class="hover:text-yellow-500 text-sm">
-                        <a href="/#thingstodo"> Things to do in Salem </a>
-                    </li>
-                    <li>
-                        <a
-                            href="/contact"
-                            class="hover:text-yellow-500 text-sm"
-                        >
-                            Contact Us
-                        </a>
-                    </li>
+                    {
+                        navItems.map((item) => (
+                            <li class="hover:text-yellow-500 text-sm">
+                                <a href={item.href}> {item.text} </a>
+                            </li>
+                        ))
+                    }
                 </ul>
             </nav>
         </div>
 
-        <a href="/contact" class="max-lg:hidden">
+        <a href="/contact" class="max-xl:hidden">
             <Button text="Book a Taxi" />
         </a>
     </header>
 </div>
 
 <style>
-    @media (max-width: 1024px) {
+    @media (max-width: 1280px) {
         .nav {
             display: none;
             position: absolute;
