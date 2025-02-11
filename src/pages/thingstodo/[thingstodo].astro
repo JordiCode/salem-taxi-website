@@ -11,7 +11,7 @@ export function getStaticPaths() {
 const { thingstodo } = Astro.params;
 ---
 
-<Layout title="Rock N´Roll - Contact Us">
+<Layout title={`Salem Taxi LLC - ${thingstodo}`}>
     <div class="flex gap-10 max-w-[1440px] mx-auto px-10 pt-24 max-lg:pt-16">
         {
             images.map((image) => {
