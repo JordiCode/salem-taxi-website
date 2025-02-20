@@ -2,20 +2,57 @@
 import OnlineBooking from "../components/OnlineBooking.astro";
 import Layout from "../layouts/Layout.astro";
 import Form from "../components/Form.astro";
+import Phone from "../components/ui/icons/Phone.astro";
 ---
 
 <Layout title="Salem Taxi LLC - Vouchers Service">
     <div class="max-w-[1440px] mx-auto pt-24 px-5">
         <h1 class="text-6xl font-bold mb-4">
-            Vounchers <span class="text-yellow-300">Service</span>
+            Salem Taxi Voucher <span class="text-yellow-300">Services</span>
         </h1>
         <p class="mb-16 leading-6 text-zinc-300">
-            we’re committed to providing safe, reliable, and punctual
-            transportation to meet all your travel needs. Whether you’re booking
-            a ride, have a question, or need assistance, we’re here to help!
-            Please feel free to get in touch with us through any of the methods
-            below.
+            Salem Taxi offers reliable and affordable voucher ride services for
+            healthcare facilities, schools, programs, nonprofits, and other
+            organizations that require safe and efficient transportation for
+            their clients and staff.
         </p>
+
+        <h2 class="text-4xl font-bold text-yellow-200 mb-5">
+            Our Services Include:
+        </h2>
+        <ul class="grid gap-5 mt-10 mb-2">
+            <li>
+                - Healthcare Transportation – Convenient rides for patients to
+                and from medical appointments
+            </li>
+            <li>
+                - School & Program Rides – Safe and timely transport for
+                students, after-school programs, and special education services
+            </li>
+            <li>
+                - Nonprofit & Community Support – Reliable transportation
+                solutions tailored for charitable organizations and social
+                programs
+            </li>
+            <li>
+                - We provide customized voucher programs to fit your
+                organization’s needs, ensuring hassle-free billing and
+                scheduling.
+            </li>
+        </ul>
+
+        <br />
+        <p class="text-2xl mb-10">
+            Complimentary Consultation Available – Contact us today to discuss a
+            transportation plan that works best for your organization.
+        </p>
+
+        <a href="tel:19787412235" class="flex gap-2 items-center h-max mb-24">
+            <Phone />
+            <p class="text-yellow-300 hover:text-yellow-400 text-lg">
+                Call Salem Taxi for more details.
+            </p>
+        </a>
         <Form />
     </div>
 </Layout>

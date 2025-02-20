@@ -2,20 +2,56 @@
 import OnlineBooking from "../components/OnlineBooking.astro";
 import Layout from "../layouts/Layout.astro";
 import Form from "../components/Form.astro";
+import Phone from "../components/ui/icons/Phone.astro";
 ---
 
 <Layout title="Salem Taxi LLC - Airport Reservation">
     <div class="max-w-[1440px] mx-auto pt-24 px-5">
         <h1 class="text-6xl font-bold mb-4">
-            Airport <span class="text-yellow-300">Reservation</span>
+            Salem Taxi Airport Pick-Up & Drop-Off <span class="text-yellow-300"
+                >Services</span
+            >
         </h1>
         <p class="mb-16 leading-6 text-zinc-300">
-            we’re committed to providing safe, reliable, and punctual
-            transportation to meet all your travel needs. Whether you’re booking
-            a ride, have a question, or need assistance, we’re here to help!
-            Please feel free to get in touch with us through any of the methods
-            below.
+            Salem Taxi provides reliable and convenient transportation to and
+            from local and international airports across Massachusetts. Whether
+            you need a ride for business travel, family trips, or any other
+            occasion, we ensure timely and stress-free airport transfers.
         </p>
+        <h2 class="text-4xl font-bold text-yellow-200 mb-5">
+            Our Services Include:
+        </h2>
+        <ul class="grid gap-5 mt-10 mb-2">
+            <li>
+                - Pick-Up & Drop-Off at All Major Airports – Logan International
+                Airport, Manchester-Boston Regional Airport, Worcester Regional
+                Airport, and more.
+            </li>
+            <li>
+                - Reliable and On-Time Service – We track flight schedules to
+                accommodate delays or early arrivals.
+            </li>
+            <li>
+                - Comfortable & Safe Rides – Spacious vehicles for individuals,
+                families, and groups.
+            </li>
+            <li>
+                - We offer pre-scheduled and on-demand rides to make your
+                airport travel seamless.
+            </li>
+        </ul>
+        <br />
+        <p class="text-2xl mb-10">
+            Complimentary Consultation Available – Contact us to arrange your
+            airport transportation.
+        </p>
+
+        <a href="tel:19787412235" class="flex gap-2 items-center h-max mb-24">
+            <Phone />
+            <p class="text-yellow-300 hover:text-yellow-400 text-lg">
+                Call Salem Taxi for more details.
+            </p>
+        </a>
         <Form />
     </div>
 </Layout>
