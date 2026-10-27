@@ -2,7 +2,7 @@
 import Button from "./ui/Button.astro";
 const classes = `
     flex flex-col items-start justify-center bg-[url('/assets/images/home1.webp')] relative 
-    bg-no-repeat bg-cover bg-[0%_20%]  h-[calc(100vh_-_6rem)] min-h-[570px]
+    bg-no-repeat bg-cover bg-position-[0%_20%]  h-[calc(100vh-6rem)] min-h-[570px]
 
 `;
 ---
@@ -12,14 +12,14 @@ const classes = `
         class="flex flex-col items-start justify-start text-left px-4 z-10 max-w-[1440px] mx-auto max-md:absolute max-md:top-[5%]"
     >
         <h1
-            class="text-6xl max-lg:text-5xl font-extrabold text-slate-50 max-w-[70rem]"
+            class="text-6xl max-lg:text-5xl font-extrabold text-slate-50 max-w-280"
             data-aos="zoom-in"
             data-aos-duration="500"
         >
             Reserve Your <span class="text-yellow-200">Taxi</span> From Any Location!
         </h1>
         <p
-            class="text-zinc-300 text-base max-lg:text-sm mt-8 max-w-[50rem] font-light"
+            class="text-zinc-300 text-base max-lg:text-sm mt-8 max-w-200 font-light"
             data-aos="zoom-in"
             data-aos-duration="1000"
         >
